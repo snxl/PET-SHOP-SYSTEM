@@ -1,0 +1,28 @@
+{
+  "arrayPet": [
+    {
+      "nomeDoPet": "MAX",
+      "raca": "GOLDEN",
+      "nomeDoDono": "NICOLAS",
+      "identificador": 0
+    },
+    {
+      "nomeDoPet": "SNOW",
+      "raca": "SIAMES",
+      "nomeDoDono": "KELLI",
+      "identificador": 1
+    },
+    {
+      "nomeDoPet": "APOLO",
+      "raca": "SHITZU",
+      "nomeDoDono": "MESSIAS",
+      "identificador": 2
+    }
+  ],
+  "arrayID": [
+    0,
+    1,
+    2,
+    3
+  ]
+}
