@@ -7,9 +7,7 @@ function cadastro() {
     inquirer.prompt(petShop).then((resposta) => {
         if (resposta.lista === 0) {
              
-            fs.readFile('./pets.json', 'utf-8', (err, jsonAnimais) => {
-                if (err) throw err;
-
+            let jsonAnimais = fs.readFileSync('./pets.json')
                 var objetoDoJson = JSON.parse(jsonAnimais)
                 
                 function Animais(nomeDoPet, raca, nomeDono) {
@@ -25,12 +23,12 @@ function cadastro() {
                 
                 objetoDoJson.arrayPet.push(animal)
 
-                fs.writeFile('./pets.json',JSON.stringify(objetoDoJson,null,2), 'utf-8', err => {
-                if(err) throw err
-            })
-            })
+                let gravar = JSON.stringify(objetoDoJson,null,2)
+
+                let writePets = fs.writeFileSync('./pets.json', gravar)
+
         }else if(resposta.lista === 1){
-            fs.readFile('./pets.json', 'utf-8', (err, jsonInteiro) =>{
+            let jsonInteiro = fs.readFileSync('./pets.json')
 
                 var carregarJson = JSON.parse(jsonInteiro)
                 
@@ -39,10 +37,9 @@ function cadastro() {
                 console.table(carregarJson.arrayPet)
 
                 return cadastro()
-            })
+
         } else if(resposta.lista === 2){
-            fs.readFile('./pets.json', 'utf-8', (err, procurarJson) =>{
-                if(err) throw err
+            let procurarJson = fs.readFileSync('./pets.json')
 
                 var jsonPorNome = JSON.parse(procurarJson)
 
@@ -59,7 +56,6 @@ function cadastro() {
                     }
                 }
                 return cadastro()
-            })
         }
         cadastro()
     })
